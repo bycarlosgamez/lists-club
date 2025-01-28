@@ -1,4 +1,8 @@
+import Link from 'next/link';
+import Placeholder from '@/components/placeholder';
+import { Button } from '@/components/ui/button';
 import { initialItems } from '@/data';
+import { itemsPath } from '@/path';
 
 type ItemPageProps = {
   params: {
@@ -10,7 +14,16 @@ const ItemPage = ({ params }: ItemPageProps) => {
   const item = initialItems.find((item) => item.id === params.itemId);
 
   if (!item) {
-    return <h3 className='text-lg'>Item not found</h3>;
+    return (
+      <Placeholder
+        label='Item not found'
+        button={
+          <Button asChild variant='outline'>
+            <Link href={itemsPath()}>Go back to items</Link>
+          </Button>
+        }
+      />
+    );
   }
   return (
     <>

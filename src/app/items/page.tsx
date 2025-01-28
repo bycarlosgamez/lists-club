@@ -1,5 +1,6 @@
-import { CircleCheck, FileText,Pencil } from 'lucide-react';
+import { CircleCheck, FileText, Pencil } from 'lucide-react';
 import Link from 'next/link';
+import Heading from '@/components/heading';
 import {
   Card,
   CardContent,
@@ -7,7 +8,6 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
 import { initialItems } from '@/data';
 import { itemPath } from '@/path';
 
@@ -20,14 +20,8 @@ const ITEM_ICON = {
 const ItemsPage = () => {
   return (
     <div className='flex-1 flex flex-col gap-y-8'>
-      <div>
-        <h2 className='text-3xl font-bold tracking-tight'>Items Page</h2>
-        <p className='text-sm text-muted-foreground'>
-          All your items in one page
-        </p>
-      </div>
+      <Heading title='Your items' description='All your items in one page' />
 
-      <Separator />
       <div className='flex-1 flex flex-col items-center gap-y-4 animate-fade-in-from-top'>
         {initialItems.map((item) => (
           <Card key={item.id} className='w-full max-w-[420px]'>
